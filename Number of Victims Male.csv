@@ -1,0 +1,18 @@
+,Incident Hour of Day,6:00pm-8:59pm,9:00pm-11:59pm,12:00am-2:59am,3:00am-5:59am,6:00am-8:59am,9:00am-11:59am,12:00n-2:59pm,3:00pm-5:59pm
+,Offense Type,Crimes Against Person,Crimes Against Person,Crimes Against Person,Crimes Against Person,Crimes Against Person,Crimes Against Person,Crimes Against Person,Crimes Against Person
+Location Type,Incident Date,,,,,,,,
+Commercial,2021,39,24,33,11,6,40,44,31
+,2020,42,13,23,5,5,20,37,27
+,2019,52,32,31,8,11,31,35,51
+,2018,36,28,58,3,15,31,39,46
+,2017,23,24,50,5,8,24,25,23
+Government/Public Building and other,2021,17,6,2,4,2,5,7,4
+,2020,9,9,7,2,4,5,3,2
+,2019,8,7,2,1,3,1,5,12
+,2018,11,7,5,,7,11,8,13
+,2017,7,10,2,3,9,14,18,8
+Road/Parking/Camps,2021,76,64,73,20,23,46,70,99
+,2020,73,51,48,14,19,44,70,78
+,2019,49,63,85,18,17,35,47,66
+,2018,57,54,57,17,18,36,65,64
+,2017,78,44,79,19,,40,43,61
