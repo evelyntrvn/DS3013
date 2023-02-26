@@ -1,21 +1,26 @@
-import matplotlib.pyplot as plt
 import pandas as pd
-from matplotlib.figure import Figure
-import numpy as np
-import seaborn as sb
-import os
+import matplotlib.pyplot as plt
 
-os.chdir("Users/maya/DS3013")
+dfMale= pd.read_csv('Number of Victims Female.csv', sep=";", encoding='cp1252')
+dfFemale = pd.read_csv('Number of Victims Male.csv', sep=";", encoding='cp1252')
 
-df = pd.read_csv('Number of Victims by Age by Gender by County.csv', sep=";", encoding='cp1252')
-print(df.head())
+times = ['6pm-9pm', '9pm-12am', '12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm']
+commercial = [192, 121, 195, 32, 45, 146, 180, 178]
+government = [52, 39, 18, 10, 25, 36, 41, 39]
+road = [333, 276, 342, 88, 77, 201, 295, 368]
 
-def visualize():
-    plt.Figure(figsize=(20, 20))
-    plt.plot(range(df.shape[0]), 100)
-    plt.xticks(range(0, df.shape[0], 500), df['Incident Hour of Day'].loc[::500], rotation=45)
-    plt.xlabel('Time of Day', fontsize=18)
-    plt.ylabel('Number of Crimes', fontsize=18)
-    plt.show()
+# Create plot
+plt.plot(times, commercial, label='Commercial')
+plt.plot(times, government, label='Government/Public Building and other')
+plt.plot(times, road, label='Road/Parking/Camps')
 
-visualize()
+# Add labels and legend
+plt.xlabel('Time of day')
+plt.ylabel('Number of incidents')
+plt.title('Incidents by time of day and location type')
+plt.legend()
+
+# Display plot
+plt.show()
+
+
