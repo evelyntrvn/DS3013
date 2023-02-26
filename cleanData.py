@@ -6,7 +6,7 @@ import numpy as np
 import seaborn as sb
 import os
 
-print(matplotlib.get_backend())
+# print(matplotlib.get_backend())
 
 df = pd.read_csv('Number of Victims Female cleaned.csv')
 
