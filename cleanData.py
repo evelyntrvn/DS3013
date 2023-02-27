@@ -49,7 +49,7 @@ def visualize(datafile, gender):
 
     x_train = times[::2]
     x_train1 = np.array(mappedArray(timesToNumMap, x_train)).reshape(-1, 1)
-    y_train = commercial[::2]
+    y_train = commercial[::2].astype('int')
     x_test = times[1::2]
     x_test1 = np.array(mappedArray(timesToNumMap, x_test)).reshape(-1, 1)
     y_test = commercial[1::2]
@@ -59,7 +59,7 @@ def visualize(datafile, gender):
     print(y_train)
 
     # linear regression
-    model = linear_model.LinearRegression()
+    model = linear_model.LogisticRegression()
     model.fit(x_train1, y_train)
     y_pred = model.predict(x_test1)
     # print(y_pred)
