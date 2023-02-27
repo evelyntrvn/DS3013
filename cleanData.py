@@ -3,8 +3,9 @@ import pandas as pd
 import matplotlib
 from matplotlib.figure import Figure
 import numpy as np
-import seaborn as sb
-import os
+from sklearn import linear_model
+from sklearn.metrics import mean_squared_error, confusion_matrix
+from sklearn.ensemble import GradientBoostingRegressor
 
 # print(matplotlib.get_backend())
 
@@ -24,9 +25,27 @@ def visualize(datafile, gender):
     commercial = df2['Commercial'].to_numpy()
     government = df2['Government/Public Building and other'].to_numpy()
     road = df2['Road/Parking/Camps'].to_numpy()
-    print(df2)
-    print(times)
-    print(commercial)
+
+    #dividing up data set
+    timesToNumMap = mapping(times) # mapping of times to number
+
+    x_train = times[::2]
+    x_train1 = np.array(mappedArray(timesToNumMap, x_train)).reshape(-1,1)
+    y_train = commercial[::2]
+    x_test = times[1::2]
+    x_test1 = np.array(mappedArray(timesToNumMap, x_test)).reshape(-1,1)
+    y_test = commercial[1::2]
+
+    print(x_test)
+    print(x_train)
+    print(y_train)
+
+    # linear regression
+    model = linear_model.LinearRegression()
+    model.fit(x_train1, y_train)
+    y_pred = model.predict(x_test1)
+    print(y_pred)
+    print(y_test)
 
     plt.plot(times, commercial, label='Commercial')
     plt.plot(times, government, label='Government/Public Building and other')
@@ -44,4 +63,21 @@ def visualize(datafile, gender):
 visualize(df, "Female")
 visualize(df2, "Male")
 
+def mapping(array):
+    map = {}
+
+    for i in range(len(array)):
+        map[array[i]]= i
+
+    # print(map)
+    return map
+
+def mappedArray(mapping, array):
+    result = []
+
+    for i in range(len(array)):
+        result.append(mapping[array[i]])
+
+    # print(result)
+    return result
 
