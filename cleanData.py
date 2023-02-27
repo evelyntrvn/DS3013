@@ -9,11 +9,12 @@ import os
 # print(matplotlib.get_backend())
 
 df = pd.read_csv('Number of Victims Female cleaned.csv')
+df2 = pd.read_csv('Number of Victims Male cleaned.csv')
 
 
-def visualize():
+def visualize(datafile, gender):
     plt.Figure(figsize=(20, 20))
-    df1 = pd.DataFrame(df)
+    df1 = pd.DataFrame(datafile)
 
     df2 = df1.transpose()
     columns = ['Commercial', 'Government/Public Building and other', 'Road/Parking/Camps']
@@ -34,11 +35,13 @@ def visualize():
     # Add labels and legend
     plt.xlabel('Time of day')
     plt.ylabel('Number of incidents')
-    plt.title('Incidents by time of day and location type')
+    plt.title('Incidents by time of day and location type ' + gender)
     plt.legend()
 
     # Display plot
     plt.show()
 
+visualize(df, "Female")
+visualize(df2, "Male")
 
-visualize()
+
